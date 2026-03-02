@@ -1,11 +1,11 @@
-📒 Caderno de Fiados – Sistema em Python com Interface Gráfica (Tkinter)
+📒 Gerenciador de Debitos – Sistema em Python com Interface Gráfica (Tkinter)
 ----------------------------------------------------------------------------------------------------------------------------------------------
 O controle de fiados em pequenos comércios sempre foi feito no caderninho tradicional, mas agora isso pode ser feito de forma digital, organizada e automática.
 Este projeto oferece uma solução simples, intuitiva e eficiente para registrar compras, pagamentos, consultar extratos, listar clientes e acompanhar o total devido — tudo com uma interface amigável construída em Tkinter.
 
 🚀 Sobre o Projeto
 ----------------------------------------------------------------------------------------------------------------------------------------------
-O Caderno de Fiados é um sistema desktop desenvolvido em Python, pensado para pequenos estabelecimentos, autônomos e qualquer pessoa que precise controlar fiados de maneira prática.
+O gerenciador de debitos é um sistema desktop desenvolvido em Python, pensado para pequenos estabelecimentos, autônomos e qualquer pessoa que precise controlar fiados de maneira prática.
 
 A aplicação permite:
 - Registrar novos clientes
