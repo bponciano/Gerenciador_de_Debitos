@@ -3,6 +3,9 @@
 > Sistema de controle financeiro com modelagem estruturada de dados e persistência local.  
 > Demonstra organização de estado, regras de negócio e manipulação de dados estruturados.
 
+![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python)
+![Tkinter](https://img.shields.io/badge/Tkinter-Tkcalendar-brightgreen?style=for-the-badge)
+
 ## 🎯 Objetivo do Projeto
 
 Desenvolver um sistema simples de gestão de débitos para clientes, permitindo registrar compras, pagamentos, consultar extratos e calcular saldos consolidados.
