@@ -1,117 +1,105 @@
-📒 Gerenciador de Debitos – Sistema em Python com Interface Gráfica (Tkinter)
-----------------------------------------------------------------------------------------------------------------------------------------------
-O controle de fiados em pequenos comércios sempre foi feito no caderninho tradicional, mas agora isso pode ser feito de forma digital, organizada e automática.
-Este projeto oferece uma solução simples, intuitiva e eficiente para registrar compras, pagamentos, consultar extratos, listar clientes e acompanhar o total devido — tudo com uma interface amigável construída em Tkinter.
+# 📊 Gerenciador de Débitos com Persistência em JSON
 
-🚀 Sobre o Projeto
-----------------------------------------------------------------------------------------------------------------------------------------------
-O gerenciador de debitos é um sistema desktop desenvolvido em Python, pensado para pequenos estabelecimentos, autônomos e qualquer pessoa que precise controlar fiados de maneira prática.
+> Sistema de controle financeiro com modelagem estruturada de dados e persistência local.  
+> Demonstra organização de estado, regras de negócio e manipulação de dados estruturados.
 
-A aplicação permite:
-- Registrar novos clientes
-- Registrar compras e pagamentos
-- Consultar extrato individual
-- Exportar extrato completo em arquivo .txt
-- Listar todos os clientes com seus saldos
-- Calcular o saldo total devido
-- Excluir clientes do registro
-- Armazenar tudo automaticamente em dados.json
-Mesmo sendo simples de usar, o sistema foi estruturado com cuidado para manter clareza, organização e escalabilidade.
+## 🎯 Objetivo do Projeto
 
-🎨 Interface Intuitiva e Direta
-----------------------------------------------------------------------------------------------------------------------------------------------
+Desenvolver um sistema simples de gestão de débitos para clientes, permitindo registrar compras, pagamentos, consultar extratos e calcular saldos consolidados.
 
-A interface foi construída com Tkinter e componentes visuais do ttk, incluindo:
-- Campos padronizados para Nome, Data e Valor
-- Botões separados por ação (compra, pagamento, consulta, etc.)
-- DataPicker automático usando tkcalendar
-- Janela dedicada para listar clientes com tabela estilizada
-- Janelas de diálogo com mensagens claras de erro ou sucesso
+O projeto foi construído para demonstrar:
 
-Toda ação é confirmada com avisos amigáveis para o usuário, tornando o sistema fácil de usar até para quem não entende nada de programação.
+- Modelagem de dados estruturados  
+- Aplicação de regras de negócio financeiras  
+- Persistência de dados em formato JSON  
+- Organização lógica de informações com integridade de chave  
 
-🧠 Como Funciona a Lógica Interna
-----------------------------------------------------------------------------------------------------------------------------------------------
+Simula o comportamento de um sistema financeiro simplificado, base para evolução futura para banco relacional.
 
-A base do sistema utiliza:
-✔ Dicionário de clientes
-Cada cliente é armazenado usando o nome como chave:
-
-```python
-clientes[nome_chave] = {
-    "nome_exibicao": nome_cliente,
-    "saldo_devedor": 0.0,
-    "transacoes": []}
+## 🏗 Arquitetura da Solução
+```
+Interface Gráfica (Tkinter)
+↓
+Camada de Regras de Negócio (Funções Python)
+↓
+Estrutura de Dados (Dicionário + Lista de Transações)
+↓
+Persistência Local (dados.json)
 ```
 
-✔ Sistema de transações
-----------------------------------------------------------------------------------------------------------------------------------------------
+## ⚙️ Stack Tecnológica
 
-Cada compra ou pagamento vira um registro com:
-- tipo (compra ou pagamento)
-- data
-- valor
+- Python 3  
+- Tkinter (GUI)  
+- tkcalendar (DateEntry)  
+- JSON (persistência documental)  
 
-✔ Armazenamento automático (JSON)
-----------------------------------------------------------------------------------------------------------------------------------------------
-Tudo é salvo e carregado via:
+## 🔄 Pipeline de Dados
 
-```python
-dados.json
-```
+### 1️⃣ Registro de Cliente
+- Normalização de chave com `.lower()`  
+- Estruturação inicial:
+  - Nome de exibição  
+  - Saldo devedor  
+  - Lista de transações  
 
-Isso permite que o usuário feche o programa e retorne exatamente de onde parou.
+---
 
-📁 Estrutura do Projeto
-----------------------------------------------------------------------------------------------------------------------------------------------
-```python
-📂 CadernoFiados
-├── caderno_fiados.py     # Código principal
-├── dados.json            # Banco de dados local (gerado automaticamente)
-├── extrato_nome.txt      # Arquivos de extrato exportados
-└── CadernoFiados.exe     # Executável (opcional)
-```
+### 2️⃣ Registro de Transações
+- Tipos:
+  - Compra (incrementa saldo)  
+  - Pagamento (decrementa saldo)  
+- Armazenamento estruturado:
+  - Tipo  
+  - Data  
+  - Valor  
+- Atualização automática do saldo  
 
-🛠 Tecnologias Utilizadas
-----------------------------------------------------------------------------------------------------------------------------------------------
+---
 
-- Python 3.10+
-- Tkinter (Interface gráfica)
-- tkcalendar (DateEntry)
-- JSON (Armazenamento local)
+### 3️⃣ Persistência
+- Serialização com `json.dump`  
+- Armazenamento em `dados.json`  
+- Salvamento automático a cada modificação  
 
-📦 Como Executar o Código
-----------------------------------------------------------------------------------------------------------------------------------------------
+---
 
-1. Requisitos
-Para rodar o código, é necessário:
-- Sistema Windows
-- Python instalado (3.10 ou superior)
-- Biblioteca tkcalendar instalada:
+### 4️⃣ Consulta e Extração
+- Geração de extrato formatado  
+- Exportação para `.txt`  
+- Cálculo de saldo total consolidado  
+- Listagem dinâmica em tabela GUI  
 
-```python
-pip install tkcalendar
-```
-2. Executar diretamente o script
-Abra o terminal na pasta do projeto e rode:
+## 🧠 Conceitos Aplicados
 
-```python
-python caderno_fiados.py
-```
-💻 Versão .EXE (Pronto para Uso)
-----------------------------------------------------------------------------------------------------------------------------------------------
+- Modelagem de dados com dicionários aninhados  
+- Manipulação de listas estruturadas  
+- Serialização e desserialização JSON  
+- Controle de estado em memória  
+- Regras de negócio financeiras  
+- Validação de entrada de dados  
+- Organização modular de funções  
+- Estrutura semelhante a banco documental  
 
-O repositório também disponibiliza o arquivo .exe, permitindo que você use o programa sem precisar instalar Python ou pacotes.
-Ideal para usuários finais que só querem utilizar o sistema.
+## 📊 Aplicações Analíticas
 
-🔓 Código Aberto
-----------------------------------------------------------------------------------------------------------------------------------------------
+- Controle financeiro de pequenos negócios  
+- Base para migração para SQLite ou PostgreSQL  
+- Exportação para CSV para análise com Pandas  
+- Integração futura com dashboards (Power BI / Streamlit)  
+- Simulação de estrutura NoSQL documental  
 
-O código-fonte está disponível integralmente para estudo, melhorias e personalizações.
-Fique à vontade para abrir Issues, sugerir melhorias ou enviar PRs.
+## 🚀 Evoluções Futuras
 
-📝 Observação Importante
-----------------------------------------------------------------------------------------------------------------------------------------------
+- Migração para banco relacional (SQLite)  
+- Separação em camadas (MVC)  
+- Implementação de logs de auditoria  
+- API REST para consumo externo  
+- Controle de autenticação  
+- Containerização da aplicação  
+- Versão web com Flask ou FastAPI  
 
-- O código só funciona no Windows e exige a biblioteca tkcalendar instalada.
-- Além disso, tanto o código completo quanto o arquivo .exe estão disponibilizados neste repositório.
+## 👨‍💻 Autor
+
+**Breno Ponciano**  
+Foco em Análise e Engenharia de Dados  

@@ -241,7 +241,7 @@ def limpar_campos():
     valor_entry.delete(0, 'end')
     nome_entry.focus()
 root = tk.Tk()
-root.title("Caderno de Fiados V1.0")
+root.title("Gerenciador de Débitos V1.0")
 
 frame = ttk.Frame(root, padding="10")
 
